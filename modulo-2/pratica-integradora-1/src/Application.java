@@ -21,9 +21,6 @@ public class Application {
         Map.Entry<String, List<Integer>> maxTemp = null;
         Map.Entry<String, List<Integer>> minTemp = null;
 
-        Integer max = Integer.MAX_VALUE;
-        Integer min = Integer.MIN_VALUE;
-
         for(Map.Entry<String, List<Integer>> city: CITIES.entrySet()){
             //Getting max temperature
             if(maxTemp == null || city.getValue().get(1).compareTo(maxTemp.getValue().get(1)) > 0){
