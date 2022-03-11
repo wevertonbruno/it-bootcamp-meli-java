@@ -35,12 +35,18 @@ public class Pessoa {
 
     @Override
     public String toString() {
-        return "Pessoa{" +
-                "ID='" + ID + '\'' +
-                ", nome='" + nome + '\'' +
-                ", idade=" + idade +
-                ", peso=" + peso +
-                ", altura=" + altura +
-                '}';
+        int imc = calcularIMC();
+        String imcMsg;
+
+        if(imc == -1){ imcMsg = "Abaixo do peso"; }
+        else if(imc == 0){ imcMsg = "Peso saudavel"; }
+        else{ imcMsg = "Sobrepeso"; }
+
+        return  String.format("Nome: %s\n", nome) +
+                String.format("Idade: %d (%s)\n", idade, ehMaiorIdade() ? "Maior de idade" : "Menor de idade") +
+                String.format("Peso: %.2fkg\n", peso) +
+                String.format("Altura: %.2fm\n", altura) +
+                String.format("ID: %s\n", ID) +
+                String.format("IMC: %s\n", imcMsg);
     }
 }
