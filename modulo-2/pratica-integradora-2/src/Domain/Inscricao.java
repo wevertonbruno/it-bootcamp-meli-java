@@ -23,7 +23,8 @@ public class Inscricao {
 
     @Override
     public String toString() {
-        return "Domain.Inscricao{" +
+        return "Inscricao{" +
+                "ID=" + ID +
                 ", pessoa=" + pessoa +
                 ", valor=" + valor +
                 '}';
