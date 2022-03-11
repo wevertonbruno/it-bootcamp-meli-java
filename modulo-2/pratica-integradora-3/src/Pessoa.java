@@ -21,5 +21,26 @@ public class Pessoa {
         this.altura = altura;
     }
 
+    public int calcularIMC(){
+        float imc = this.peso/(this.altura*this.altura);
+        if(imc < 20){ return -1; }
+        if(imc >= 20 && imc <= 25){ return 0; }
+        return 1;
+    }
 
+    public boolean ehMaiorIdade(){
+        if(idade >= 18) return true;
+        return false;
+    }
+
+    @Override
+    public String toString() {
+        return "Pessoa{" +
+                "ID='" + ID + '\'' +
+                ", nome='" + nome + '\'' +
+                ", idade=" + idade +
+                ", peso=" + peso +
+                ", altura=" + altura +
+                '}';
+    }
 }
