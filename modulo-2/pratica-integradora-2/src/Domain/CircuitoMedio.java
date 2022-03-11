@@ -1,4 +1,8 @@
-public class CircuitoMedio implements Circuito{
+package Domain;
+
+import Domain.CircuitoPago;
+
+public class CircuitoMedio extends CircuitoBase implements CircuitoPago {
     @Override
     public Double verificarValor(Pessoa pessoa) {
         if(pessoa.getIdade() < 18){

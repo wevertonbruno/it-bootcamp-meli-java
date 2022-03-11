@@ -1,3 +1,5 @@
+package Domain;
+
 public class Pessoa {
     private Integer ID;
     private String RG;
@@ -82,7 +84,7 @@ public class Pessoa {
 
     @Override
     public String toString() {
-        return "Pessoa{" +
+        return "Domain.Pessoa{" +
                 "ID=" + ID +
                 ", RG='" + RG + '\'' +
                 ", nome='" + nome + '\'' +
