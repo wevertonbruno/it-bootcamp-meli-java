@@ -32,7 +32,6 @@ public class UI {
             switch(CONSOLE.nextInt()){
                 case 1:
                     Pessoa pessoa = cadastrarPessoa();
-                    pessoa.setID(getProximaInscricao());
                     cadastrarInscricao(pessoa);
                     break;
 
@@ -89,7 +88,7 @@ public class UI {
         Iterator<Inscricao> iterator = circuito.getInscricoes().iterator();
         while(iterator.hasNext()){
             Inscricao inscricao = iterator.next();
-            if(inscricao.getPessoa().getID().equals(registro)){
+            if(inscricao.getID().equals(registro)){
                 iterator.remove();
                 System.out.println("Participante " +
                         inscricao.getPessoa().getNome() +
@@ -144,17 +143,17 @@ public class UI {
             try{
                 switch (CONSOLE.nextInt()){
                     case 1:
-                        inscricao = new Inscricao(pessoa, circuitoPequeno);
+                        inscricao = new Inscricao(generateId(),pessoa, circuitoPequeno);
                         circuitoPequeno.addInscricao(inscricao);
                         return inscricao;
 
                     case 2:
-                        inscricao = new Inscricao(pessoa, circuitoMedio);
+                        inscricao = new Inscricao(generateId(), pessoa, circuitoMedio);
                         circuitoMedio.addInscricao(inscricao);
                         return inscricao;
 
                     case 3:
-                        inscricao = new Inscricao(pessoa, circuitoAvancado);
+                        inscricao = new Inscricao(generateId(), pessoa, circuitoAvancado);
                         circuitoAvancado.addInscricao(inscricao);
                         return inscricao;
 
@@ -192,7 +191,7 @@ public class UI {
         return pessoa;
     }
 
-    private Integer getProximaInscricao(){
+    private Integer generateId(){
         return ++this.inscricaoCounter;
     }
 

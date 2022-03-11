@@ -1,7 +1,6 @@
 package Domain;
 
 public class Pessoa {
-    private Integer ID;
     private String RG;
     private String nome;
     private String sobrenome;
@@ -9,15 +8,6 @@ public class Pessoa {
     private String celular;
     private String numEmergencia;
     private String tipoSanguineo;
-
-    public Integer getID() {
-        return ID;
-    }
-
-    public Pessoa setID(Integer ID) {
-        this.ID = ID;
-        return this;
-    }
 
     public String getRG() {
         return RG;
@@ -85,8 +75,7 @@ public class Pessoa {
     @Override
     public String toString() {
         return "Domain.Pessoa{" +
-                "ID=" + ID +
-                ", RG='" + RG + '\'' +
+                "RG='" + RG + '\'' +
                 ", nome='" + nome + '\'' +
                 ", sobrenome='" + sobrenome + '\'' +
                 ", idade=" + idade +
