@@ -15,12 +15,15 @@ public class Distribuidora {
                 new NaoPerecivel("Franela", 2.0, "Higiene")
         ));
 
-        Double valor = 0.0;
+        Double total = 0.0;
 
+        System.out.println("--------------------");
         for(Produto produto : produtos){
-            valor += produto.calcular(5);
+            Double subtotal = produto.calcular(5);
+            total += subtotal;
+            System.out.println(String.format("%d x %s \t%f\t%f", 5, produto.getNome(), produto.getPreco(), subtotal));
         }
 
-        System.out.println(String.format("Total a pagar: R$ %.2f", valor));
+        System.out.println(String.format("Total a pagar: R$ %.2f", total));
     }
 }
