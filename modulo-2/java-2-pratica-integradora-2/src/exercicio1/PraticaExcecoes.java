@@ -1,3 +1,5 @@
+package exercicio1;
+
 public class PraticaExcecoes {
     public static void main(String[] args) {
         int a = 0;
