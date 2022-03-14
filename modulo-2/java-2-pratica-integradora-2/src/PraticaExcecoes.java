@@ -6,7 +6,7 @@ public class PraticaExcecoes {
         try {
             int razao = b/a;
         }catch(ArithmeticException e) {
-            System.out.println("Ocorreu um erro");
+            throw new IllegalArgumentException("Nao pode ser dividido por zero");
         }finally {
             System.out.println("Programa finalizado");
         }
