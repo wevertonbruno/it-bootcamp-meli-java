@@ -143,17 +143,17 @@ public class UI {
             try{
                 switch (CONSOLE.nextInt()){
                     case 1:
-                        inscricao = new Inscricao(generateId(),pessoa, circuitoPequeno);
+                        inscricao = new Inscricao(generateId(),pessoa, circuitoPequeno.verificarValor(pessoa));
                         circuitoPequeno.addInscricao(inscricao);
                         return inscricao;
 
                     case 2:
-                        inscricao = new Inscricao(generateId(), pessoa, circuitoMedio);
+                        inscricao = new Inscricao(generateId(), pessoa, circuitoMedio.verificarValor(pessoa));
                         circuitoMedio.addInscricao(inscricao);
                         return inscricao;
 
                     case 3:
-                        inscricao = new Inscricao(generateId(), pessoa, circuitoAvancado);
+                        inscricao = new Inscricao(generateId(), pessoa, circuitoAvancado.verificarValor(pessoa));
                         circuitoAvancado.addInscricao(inscricao);
                         return inscricao;
 
@@ -170,7 +170,7 @@ public class UI {
 
     private Pessoa cadastrarPessoa(){
         System.out.println("-------------------------");
-        Pessoa pessoa = new Pessoa();
+        Pessoa.Builder pessoa = new Pessoa.Builder();
 
         System.out.print("RG: ");
         pessoa.setRG(CONSOLE.next());
@@ -188,7 +188,7 @@ public class UI {
         System.out.print("Tipo Sanguineo: ");
         pessoa.setTipoSanguineo(CONSOLE.next());
 
-        return pessoa;
+        return pessoa.build();
     }
 
     private Integer generateId(){

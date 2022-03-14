@@ -9,67 +9,68 @@ public class Pessoa {
     private String numEmergencia;
     private String tipoSanguineo;
 
-    public String getRG() {
-        return RG;
+    public static class Builder{
+        private String RG;
+        private String nome;
+        private String sobrenome;
+        private Integer idade;
+        private String celular;
+        private String numEmergencia;
+        private String tipoSanguineo;
+
+        public Builder(){
+        }
+
+        public Builder setNome(String nome){ this.nome = nome; return this; }
+
+        public Builder setRG(String RG){ this.RG = RG; return this; }
+
+        public Builder setSobrenome(String sobrenome) {
+            this.sobrenome = sobrenome;
+            return this;
+        }
+
+        public Builder setIdade(Integer idade) {
+            this.idade = idade;
+            return this;
+        }
+
+        public Builder setCelular(String celular) {
+            this.celular = celular;
+            return this;
+        }
+
+        public Builder setNumEmergencia(String numEmergencia) {
+            this.numEmergencia = numEmergencia;
+            return this;
+        }
+
+        public Builder setTipoSanguineo(String tipoSanguineo) {
+            this.tipoSanguineo = tipoSanguineo;
+            return this;
+        }
+
+        public Pessoa build(){
+            return new Pessoa(this);
+        }
     }
 
-    public Pessoa setRG(String RG) {
-        this.RG = RG;
-        return this;
+    private Pessoa(Builder builder){
+        nome = builder.nome;
+        RG = builder.RG;
+        sobrenome = builder.sobrenome;
+        idade = builder.idade;
+        celular = builder.celular;
+        numEmergencia = builder.numEmergencia;
+        tipoSanguineo = builder.tipoSanguineo;
     }
 
     public String getNome() {
         return nome;
     }
 
-    public Pessoa setNome(String nome) {
-        this.nome = nome;
-        return this;
-    }
-
-    public String getSobrenome() {
-        return sobrenome;
-    }
-
-    public Pessoa setSobrenome(String sobrenome) {
-        this.sobrenome = sobrenome;
-        return this;
-    }
-
     public Integer getIdade() {
         return idade;
-    }
-
-    public Pessoa setIdade(Integer idade) {
-        this.idade = idade;
-        return this;
-    }
-
-    public String getCelular() {
-        return celular;
-    }
-
-    public Pessoa setCelular(String celular) {
-        this.celular = celular;
-        return this;
-    }
-
-    public String getNumEmergencia() {
-        return numEmergencia;
-    }
-
-    public Pessoa setNumEmergencia(String numEmergencia) {
-        this.numEmergencia = numEmergencia;
-        return this;
-    }
-
-    public String getTipoSanguineo() {
-        return tipoSanguineo;
-    }
-
-    public Pessoa setTipoSanguineo(String tipoSanguineo) {
-        this.tipoSanguineo = tipoSanguineo;
-        return this;
     }
 
     @Override

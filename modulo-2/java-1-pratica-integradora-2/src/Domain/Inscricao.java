@@ -7,10 +7,10 @@ public class Inscricao {
     private Pessoa pessoa;
     private Double valor;
 
-    public Inscricao(Integer ID, Pessoa pessoa, CircuitoPago circuitoPago) {
+    public Inscricao(Integer ID, Pessoa pessoa, Double valor) {
         this.ID = ID;
         this.pessoa = pessoa;
-        this.valor = circuitoPago.verificarValor(pessoa);
+        this.valor = valor;
     }
 
     public Integer getID() {
