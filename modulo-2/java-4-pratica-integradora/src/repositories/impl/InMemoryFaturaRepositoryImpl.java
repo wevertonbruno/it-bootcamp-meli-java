@@ -4,6 +4,7 @@ import entities.Fatura;
 import exceptions.EntityNotFoundException;
 import repositories.FaturaRepository;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -21,7 +22,7 @@ public class InMemoryFaturaRepositoryImpl implements FaturaRepository {
     public void update(UUID ID, Fatura fatura) {
         Fatura faturaOld = get(ID);
         faturaOld.setCliente(fatura.getCliente());
-        faturaOld.setProdutos(fatura.getProdutos());
+        faturaOld.setItems(fatura.getItems());
     }
 
     @Override

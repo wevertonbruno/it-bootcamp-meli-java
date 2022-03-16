@@ -1,19 +1,21 @@
 package entities;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Fatura extends Entity{
     private Cliente cliente;
-    private List<ItemProduto> produtos = new ArrayList<>();
+    private List<ItemProduto> items = new ArrayList<>();
 
     public Fatura(Cliente cliente) {
         this.cliente = cliente;
     }
 
-    public Fatura(Cliente cliente, List<ItemProduto> produtos) {
+    public Fatura(Cliente cliente, List<ItemProduto> items) {
         this.cliente = cliente;
-        this.produtos = produtos;
+        this.items = items;
     }
 
     public Cliente getCliente() {
@@ -24,12 +26,30 @@ public class Fatura extends Entity{
         this.cliente = cliente;
     }
 
-    public List<ItemProduto> getProdutos() {
-        return produtos;
+    public List<ItemProduto> getItems() {
+        return items;
     }
 
-    public void setProdutos(List<ItemProduto> produtos) {
-        this.produtos = produtos;
+    public void setItems(List<ItemProduto> items) {
+        this.items = items;
+    }
+
+    public BigDecimal getTotal(){
+        BigDecimal total = BigDecimal.ZERO;
+
+        for (ItemProduto item :
+                items) {
+            total = total.add(item.getSubTotal());
+        }
+
+        return total;
+    }
+
+    public String toPrint(){
+        return "Cliente: " + getCliente().getNome() + " " + getCliente().getSobrenome() + "\n" +
+        getItems().stream().map(item -> item.toPrint()).collect(Collectors.joining("\n")) +
+        "\n--------------------------\n" +
+        String.format("Total: \t\t %.2f", getTotal().floatValue());
     }
 
     @Override
@@ -37,7 +57,7 @@ public class Fatura extends Entity{
         return "Fatura{" +
                 "ID='" + getID() + '\'' +
                 ", cliente=" + cliente +
-                ", produtos=" + produtos +
+                ", items=" + items +
                 '}';
     }
 }

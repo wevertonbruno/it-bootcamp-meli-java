@@ -37,15 +37,28 @@ public class SupermercadoService {
         return this.clienteRepository.get(UUID.fromString(ID));
     }
 
-
-    public void addProduto(String nome, Double preco){
+    public Produto addProduto(String nome, Double preco){
         Produto produto = new Produto(nome, BigDecimal.valueOf(preco));
         this.produtoRepository.create(produto);
+        return produto;
     }
 
-    public void addFatura(Cliente cliente, List<ItemProduto> produtos){
+    public Fatura addFatura(String clienteId, List<ItemProduto> produtos){
+        Cliente cliente = getCliente(clienteId);
         Fatura fatura = new Fatura(cliente, produtos);
+
         this.faturaRepository.create(fatura);
+
+        return fatura;
+    }
+
+    public Fatura getFatura(String ID){
+        return this.faturaRepository.get(UUID.fromString(ID));
+    }
+
+    public void printFatura(String faturaId){
+        Fatura fatura = getFatura(faturaId);
+        System.out.println(fatura.toPrint());
     }
 
     public List<Cliente> listAllClientes(){
