@@ -26,4 +26,10 @@ public class MorseController {
         MorseResponse response = new MorseResponse(codigoMorseService.traduzirTexto(codigo));
         return ResponseEntity.ok(response);
     }
+
+    @GetMapping("/converter")
+    public ResponseEntity<MorseResponse> converter(@RequestParam String texto){
+        MorseResponse response = new MorseResponse(codigoMorseService.converterTexto(texto));
+        return ResponseEntity.ok(response);
+    }
 }
