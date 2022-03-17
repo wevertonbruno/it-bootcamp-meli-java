@@ -1,5 +1,6 @@
-package br.com.meli.spring1pratica2.services;
+package br.com.meli.spring1pratica2.services.utils;
 
+import br.com.meli.spring1pratica2.services.CodigoMorseMapper;
 import org.springframework.stereotype.Component;
 
 import java.util.AbstractMap;
@@ -7,7 +8,7 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 @Component
-public class CodigoMorseMapperImpl implements CodigoMorseMapper{
+public class CodigoMorseMapperImpl implements CodigoMorseMapper {
     private static Map<String, Character> CODIGO_MAPPER = Map.ofEntries(
             Map.entry(".-",    'A'),
             Map.entry("-...",  'B'),
