@@ -24,9 +24,9 @@ public class SupermercadoService {
         this.faturaRepository = faturaRepository;
     }
 
-    public void addCliente(String nome, String sobrenome){
+    public Cliente addCliente(String nome, String sobrenome){
         Cliente cliente = new Cliente(nome, sobrenome);
-        this.clienteRepository.create(cliente);
+        return this.clienteRepository.create(cliente);
     }
 
     public void removerCliente(String ID){
@@ -39,17 +39,14 @@ public class SupermercadoService {
 
     public Produto addProduto(String nome, Double preco){
         Produto produto = new Produto(nome, BigDecimal.valueOf(preco));
-        this.produtoRepository.create(produto);
-        return produto;
+        return this.produtoRepository.create(produto);
     }
 
     public Fatura addFatura(String clienteId, List<ItemProduto> produtos){
         Cliente cliente = getCliente(clienteId);
         Fatura fatura = new Fatura(cliente, produtos);
 
-        this.faturaRepository.create(fatura);
-
-        return fatura;
+        return this.faturaRepository.create(fatura);
     }
 
     public Fatura getFatura(String ID){

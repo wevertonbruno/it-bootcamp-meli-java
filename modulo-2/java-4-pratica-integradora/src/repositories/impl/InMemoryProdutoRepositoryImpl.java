@@ -14,8 +14,14 @@ public class InMemoryProdutoRepositoryImpl implements ProdutoRepository {
     private List<Produto> repository = new ArrayList<>();
 
     @Override
-    public void create(Produto produto) {
+    public Produto create(Produto produto) {
+        Produto newProduto = new Produto(
+                UUID.randomUUID(),
+                produto.getNome(),
+                produto.getPrecoUnitario()
+        );
         repository.add(produto);
+        return newProduto;
     }
 
     @Override

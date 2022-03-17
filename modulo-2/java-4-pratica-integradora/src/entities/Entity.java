@@ -6,10 +6,13 @@ import java.util.Objects;
 import java.util.UUID;
 
 public abstract class Entity {
-    private final UUID ID;
+    private UUID ID;
 
     public Entity() {
-        this.ID = UUID.randomUUID();
+    }
+
+    public Entity(UUID ID){
+        this.ID = ID;
     }
 
     public UUID getID() { return ID; }

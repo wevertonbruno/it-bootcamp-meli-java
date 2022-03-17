@@ -13,6 +13,12 @@ public class Cliente extends Entity{
         this.sobrenome = sobrenome;
     }
 
+    public Cliente(UUID ID, String nome, String sobrenome){
+        super(ID);
+        this.nome = nome;
+        this.sobrenome = sobrenome;
+    }
+
     public String getNome() {
         return nome;
     }

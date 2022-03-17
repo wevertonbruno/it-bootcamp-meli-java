@@ -1,12 +1,14 @@
 package entities;
 
 import java.math.BigDecimal;
+import java.util.UUID;
 
 public class ItemProduto extends Entity{
     private Produto produto;
     private Integer quantidade;
 
     public ItemProduto(Produto produto, Integer quantidade) {
+        super(UUID.randomUUID());
         this.produto = produto;
         this.quantidade = quantidade;
     }

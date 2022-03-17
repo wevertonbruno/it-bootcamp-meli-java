@@ -14,8 +14,14 @@ public class InMemoryClienteRepositoryImpl implements ClienteRepository {
     private List<Cliente> repository = new ArrayList<>();
 
     @Override
-    public void create(Cliente cliente) {
-        repository.add(cliente);
+    public Cliente create(Cliente cliente) {
+        Cliente newCliente = new Cliente(
+                UUID.randomUUID(),
+                cliente.getNome(),
+                cliente.getSobrenome()
+        );
+        repository.add(newCliente);
+        return newCliente;
     }
 
     @Override

@@ -1,5 +1,6 @@
 package repositories.impl;
 
+import entities.Cliente;
 import entities.Fatura;
 import exceptions.EntityNotFoundException;
 import repositories.FaturaRepository;
@@ -14,8 +15,14 @@ public class InMemoryFaturaRepositoryImpl implements FaturaRepository {
     private List<Fatura> repository = new ArrayList<>();
 
     @Override
-    public void create(Fatura fatura) {
-        repository.add(fatura);
+    public Fatura create(Fatura fatura) {
+        Fatura newFatura = new Fatura(
+                UUID.randomUUID(),
+                fatura.getCliente(),
+                fatura.getItems()
+        );
+        repository.add(newFatura);
+        return newFatura;
     }
 
     @Override

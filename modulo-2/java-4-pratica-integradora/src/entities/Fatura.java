@@ -3,6 +3,7 @@ package entities;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 public class Fatura extends Entity{
@@ -14,6 +15,12 @@ public class Fatura extends Entity{
     }
 
     public Fatura(Cliente cliente, List<ItemProduto> items) {
+        this.cliente = cliente;
+        this.items = items;
+    }
+
+    public Fatura(UUID ID, Cliente cliente, List<ItemProduto> items){
+        super(ID);
         this.cliente = cliente;
         this.items = items;
     }
