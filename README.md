@@ -20,3 +20,5 @@
 - Spring I: [Pratica 1 API Numero Romano](https://github.com/wevertonbruno/it-bootcamp-meli-java/tree/main/modulo-3/spring-1-pratica-1)
 - Spring I: [Pratica 2 API Codigo Morse](https://github.com/wevertonbruno/it-bootcamp-meli-java/tree/main/modulo-3/spring-1-pratica-2)
 - Spring II: [Pratica 1 API Idade](https://github.com/wevertonbruno/it-bootcamp-meli-java/tree/main/modulo-3/spring-2-pratica-1)
+- Spring II: [Pratica 2 API Esporte e Pessoas](https://github.com/wevertonbruno/it-bootcamp-meli-java/tree/main/modulo-3/spring-2-pratica-2)
+
