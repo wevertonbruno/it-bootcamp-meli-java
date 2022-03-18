@@ -1,10 +1,11 @@
-package br.com.meli.spring1pratica2.controllers.DTO;
+package br.com.meli.spring2pratica1.controllers.DTO;
 
 import org.springframework.http.HttpStatus;
 
+import java.io.Serializable;
 import java.time.Instant;
 
-public class ErrorDTO {
+public class ErrorDTO implements Serializable {
     private String message;
     private Instant time;
     private Integer statusCode;

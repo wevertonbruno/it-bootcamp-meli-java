@@ -1,4 +1,4 @@
-package br.com.meli.spring1pratica2.services;
+package br.com.meli.spring2pratica1.services;
 
 import org.springframework.stereotype.Service;
 

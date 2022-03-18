@@ -1,6 +1,8 @@
-package br.com.meli.spring1pratica2.controllers.DTO;
+package br.com.meli.spring2pratica1.controllers.DTO;
 
-public class ResponseDTO {
+import java.io.Serializable;
+
+public class ResponseDTO implements Serializable {
     private Integer idade;
 
     public ResponseDTO(Integer idade) {

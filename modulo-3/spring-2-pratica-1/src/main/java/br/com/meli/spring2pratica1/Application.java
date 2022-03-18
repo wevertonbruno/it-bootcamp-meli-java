@@ -1,4 +1,4 @@
-package br.com.meli.spring1pratica2;
+package br.com.meli.spring2pratica1;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
