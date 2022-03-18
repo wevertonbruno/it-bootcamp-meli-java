@@ -1,4 +1,4 @@
-package br.com.meli.spring2pratica2.controllers.exceptions;
+package br.com.meli.spring2pratica2.controllers;
 
 import br.com.meli.spring2pratica2.services.DTO.PersonDTO;
 import br.com.meli.spring2pratica2.services.PersonService;
