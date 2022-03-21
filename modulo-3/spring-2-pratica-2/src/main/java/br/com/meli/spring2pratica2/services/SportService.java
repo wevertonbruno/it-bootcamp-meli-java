@@ -7,7 +7,9 @@ import br.com.meli.spring2pratica2.services.DTO.SportNivelDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.swing.text.html.Option;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class SportService {
@@ -19,11 +21,10 @@ public class SportService {
     }
 
     public SportNivelDTO findByName(String name){
-        Sport sport = sportRepository.findByName(name);
-        if(sport == null){
-            throw new EntityNotFound();
-        }
-        return new SportNivelDTO(sport.getNivel());
+        Optional<Sport> sport = sportRepository.findByName(name);
+        return sport
+                .map(s -> new SportNivelDTO(s.getNivel()))
+                .orElseThrow(() -> new EntityNotFound());
     }
 
     public List<Sport> findAll(){

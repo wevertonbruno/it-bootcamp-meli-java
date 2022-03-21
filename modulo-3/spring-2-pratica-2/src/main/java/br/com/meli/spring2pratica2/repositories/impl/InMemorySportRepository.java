@@ -6,6 +6,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Repository
@@ -18,11 +19,10 @@ public class InMemorySportRepository implements SportRepository {
     }
 
     @Override
-    public Sport findByName(String name) {
+    public Optional<Sport> findByName(String name) {
         return data.stream()
                 .filter(sport -> sport.getName().equalsIgnoreCase(name))
-                .findFirst()
-                .get();
+                .findFirst();
     }
 
     @Override

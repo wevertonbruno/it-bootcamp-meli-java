@@ -1,5 +1,6 @@
 package br.com.meli.spring2pratica2.controllers;
 
+import br.com.meli.spring2pratica2.controllers.exceptions.EntityNotFound;
 import br.com.meli.spring2pratica2.entities.Sport;
 import br.com.meli.spring2pratica2.repositories.SportRepository;
 import br.com.meli.spring2pratica2.services.DTO.SportNivelDTO;
@@ -31,7 +32,11 @@ public class SportController {
 
     @GetMapping("/{name}")
     public ResponseEntity<SportNivelDTO> findByName(@PathVariable String name){
-        SportNivelDTO response = sportService.findByName(name);
-        return ResponseEntity.ok(response);
+        try{
+            SportNivelDTO response = sportService.findByName(name);
+            return ResponseEntity.ok(response);
+        }catch (EntityNotFound e){
+            return ResponseEntity.notFound().build();
+        }
     }
 }
