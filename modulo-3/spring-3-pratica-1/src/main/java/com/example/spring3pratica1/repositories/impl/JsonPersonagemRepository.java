@@ -10,10 +10,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.util.ResourceUtils;
 
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Locale;
-import java.util.Optional;
+import java.util.*;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
@@ -22,7 +19,7 @@ public class JsonPersonagemRepository implements PersonagemRepository {
     private List<Personagem> repository;
 
     public JsonPersonagemRepository() throws IOException {
-        repository = Arrays.asList(JsonReader.read("file:src/main/resources/starwars.json", PersonagemMapper[].class))
+        repository = JsonReader.readAsList("file:src/main/resources/starwars.json", PersonagemMapper[].class)
                 .stream()
                 .map(PersonagemMapper::toPersonagem)
                 .collect(Collectors.toList());
