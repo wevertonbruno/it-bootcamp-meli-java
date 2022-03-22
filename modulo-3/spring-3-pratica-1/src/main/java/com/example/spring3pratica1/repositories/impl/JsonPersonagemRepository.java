@@ -22,23 +22,19 @@ public class JsonPersonagemRepository implements PersonagemRepository {
     private List<Personagem> repository;
 
     public JsonPersonagemRepository() throws IOException {
-        ObjectMapper objectMapper = new ObjectMapper();
-
-        PersonagemMapper[] personagens = objectMapper.readValue(
-                new ClassPathResource("starwars.json").getFile(), PersonagemMapper[].class);
-
-        repository = Arrays.asList(personagens).stream().map(PersonagemMapper::toPersonagem).collect(Collectors.toList());
+        repository = Arrays.asList(JsonReader.read("file:src/main/resources/starwars.json", PersonagemMapper[].class))
+                .stream()
+                .map(PersonagemMapper::toPersonagem)
+                .collect(Collectors.toList());
     }
 
     @Override
-    public Optional<Personagem> findByNameContaining(String name) {
+    public List<Personagem> findByNameContaining(String name) {
         // Function to find name that constains string
         Predicate<Personagem> hasName = personagem -> personagem.getName().toLowerCase(Locale.ROOT).contains(name.toLowerCase(Locale.ROOT));
 
-        Optional<Personagem> personagemMatch = repository.stream()
+        return repository.stream()
                 .filter(hasName)
-                .findFirst();
-
-        return personagemMatch;
+                .collect(Collectors.toList());
     }
 }

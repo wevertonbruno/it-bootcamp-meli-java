@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/star-wars")
 public class PersonagemController {
@@ -21,10 +23,9 @@ public class PersonagemController {
     }
 
     @GetMapping("/search")
-    public ResponseEntity<PersonagemDTO> findByNameContaining(
+    public ResponseEntity<List<PersonagemDTO>> findByNameContaining(
             @RequestParam String name
     ){
-        PersonagemDTO personagemDTO = personagemService.findByNameContaining(name);
-        return ResponseEntity.ok(personagemDTO);
+        return ResponseEntity.ok(personagemService.findByNameContaining(name));
     }
 }

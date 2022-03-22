@@ -1,13 +1,12 @@
 package com.example.spring3pratica1.services;
 
-import com.example.spring3pratica1.entities.Personagem;
 import com.example.spring3pratica1.repositories.PersonagemRepository;
 import com.example.spring3pratica1.services.DTO.PersonagemDTO;
-import com.example.spring3pratica1.controllers.exceptions.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Optional;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class PersonagemService {
@@ -19,11 +18,9 @@ public class PersonagemService {
         this.personagemRepository = personagemRepository;
     }
 
-    public PersonagemDTO findByNameContaining(String name){
-        Optional<Personagem> personagem = personagemRepository.findByNameContaining(name);
-
-        return personagem
-                .map(PersonagemDTO::fromPersonagem)
-                .orElseThrow(() -> new EntityNotFoundException("Personagem com nome " + name + " nao encontrado."));
+    public List<PersonagemDTO> findByNameContaining(String name){
+        return personagemRepository.findByNameContaining(name)
+                .stream().map(PersonagemDTO::fromPersonagem)
+                .collect(Collectors.toList());
     }
 }
