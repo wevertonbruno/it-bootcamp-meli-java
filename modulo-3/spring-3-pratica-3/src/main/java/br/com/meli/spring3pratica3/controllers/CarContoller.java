@@ -2,6 +2,7 @@ package br.com.meli.spring3pratica3.controllers;
 
 import br.com.meli.spring3pratica3.entities.Car;
 import br.com.meli.spring3pratica3.services.CarService;
+import br.com.meli.spring3pratica3.services.DTO.UsedCarDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -27,13 +28,13 @@ public class CarContoller {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Car> findById(String id) {
+    public ResponseEntity<Car> findById(@PathVariable String id) {
         Car car = carService.findById(id);
         return ResponseEntity.ok(car);
     }
 
     @GetMapping
-    public ResponseEntity<List<Car>> findAll() {
+    public ResponseEntity<List<UsedCarDTO>> findAll() {
         return ResponseEntity.ok(carService.findAll());
     }
 
