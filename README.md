@@ -22,4 +22,5 @@
 - Spring II: [Pratica 1 API Idade](https://github.com/wevertonbruno/it-bootcamp-meli-java/tree/main/modulo-3/spring-2-pratica-1)
 - Spring II: [Pratica 2 API Esporte e Pessoas](https://github.com/wevertonbruno/it-bootcamp-meli-java/tree/main/modulo-3/spring-2-pratica-2)
 - Spring III: [Pratica 1 API Star Wars](https://github.com/wevertonbruno/it-bootcamp-meli-java/tree/main/modulo-3/spring-3-pratica-1)
+- Spring III: [Pratica 3 API Veiculos](https://github.com/wevertonbruno/it-bootcamp-meli-java/tree/main/modulo-3/spring-3-pratica-3)
 
