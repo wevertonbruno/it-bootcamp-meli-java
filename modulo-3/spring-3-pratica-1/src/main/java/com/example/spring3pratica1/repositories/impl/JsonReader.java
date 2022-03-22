@@ -11,6 +11,7 @@ import java.util.List;
 
 /**
  * Util class to handle Json files
+ * @author https://github.com/wevertonbruno
  */
 public class JsonReader {
 
