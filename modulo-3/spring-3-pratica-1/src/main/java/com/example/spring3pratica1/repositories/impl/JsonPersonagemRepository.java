@@ -2,12 +2,7 @@ package com.example.spring3pratica1.repositories.impl;
 
 import com.example.spring3pratica1.entities.Personagem;
 import com.example.spring3pratica1.repositories.PersonagemRepository;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.core.io.ClassPathResource;
-import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Repository;
-import org.springframework.util.ResourceUtils;
 
 import java.io.IOException;
 import java.util.*;
@@ -19,7 +14,7 @@ public class JsonPersonagemRepository implements PersonagemRepository {
     private List<Personagem> repository;
 
     public JsonPersonagemRepository() throws IOException {
-        repository = JsonReader.readAsList("file:src/main/resources/starwars.json", PersonagemMapper[].class)
+        repository = JsonUtil.readAsList("file:src/main/resources/starwars.json", PersonagemMapper[].class)
                 .stream()
                 .map(PersonagemMapper::toPersonagem)
                 .collect(Collectors.toList());
