@@ -24,3 +24,5 @@
 - Spring III: [Pratica 1 API Star Wars](https://github.com/wevertonbruno/it-bootcamp-meli-java/tree/main/modulo-3/spring-3-pratica-1)
 - Spring III: [Pratica 3 API Veiculos](https://github.com/wevertonbruno/it-bootcamp-meli-java/tree/main/modulo-3/spring-3-pratica-3)
 
+#### Modulo 4 (Testing)
+- Testing 1: [Pratica 1 Bean Validation](https://github.com/wevertonbruno/it-bootcamp-meli-java/tree/main/modulo-4/testing-1-pratica-1)
