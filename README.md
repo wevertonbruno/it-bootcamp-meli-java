@@ -26,3 +26,4 @@
 
 #### Modulo 4 (Testing)
 - Testing 1: [Pratica 1 Bean Validation](https://github.com/wevertonbruno/it-bootcamp-meli-java/tree/main/modulo-4/testing-1-pratica-1)
+- Testing 1: [Pratica 2 Testes com JUnit e Mockito](https://github.com/wevertonbruno/it-bootcamp-meli-java/tree/main/modulo-4/testing-1-pratica-2)
