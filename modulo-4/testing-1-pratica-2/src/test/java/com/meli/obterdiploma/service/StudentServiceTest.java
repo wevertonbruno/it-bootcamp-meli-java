@@ -5,12 +5,10 @@ import com.meli.obterdiploma.model.SubjectDTO;
 import com.meli.obterdiploma.repository.IStudentDAO;
 import com.meli.obterdiploma.repository.IStudentRepository;
 import com.meli.obterdiploma.repository.StudentDAO;
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
-import org.mockito.Mockito;
-import org.mockito.Spy;
+import org.mockito.*;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
@@ -18,7 +16,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.assertj.core.api.Assertions.*;
 //import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
@@ -52,10 +50,15 @@ class StudentServiceTest {
 
     @Test
     public void itShouldCallSaveWhenUpdate(){
-        studentService.update(new StudentDTO());
+        StudentDTO student = new StudentDTO(1L, "Weverton", null, null, new ArrayList<>());
+        studentService.update(student);
 
+        ArgumentCaptor<StudentDTO> captor = ArgumentCaptor.forClass(StudentDTO.class);
         Mockito.verify(studentDAO, Mockito.times(1))
-                .save(Mockito.any(StudentDTO.class));
+                .save(captor.capture());
+
+        assertThat(captor.getValue()).isEqualTo(student);
+        
     }
 
     @Test
