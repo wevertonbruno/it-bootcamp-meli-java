@@ -30,8 +30,7 @@
 
 
 #### Modulo 5 (Banco de dados)
-- Banco de Dados 1: [Pratica 1 Diagrama Entidade Relacionamento](modulo-5/banco-pratica-1)
-- Banco de Dados 1: [Pratica 2 Consultas SQL](modulo-5/banco-pratica-2)
-
+- Banco de Dados 1: [Pratica 1 Diagrama Entidade Relacionamento](modulo-5/banco-1-pratica-1)
+- Banco de Dados 1: [Pratica 2 Consultas SQL](modulo-5/banco-1-pratica-2)
 - Banco de Dados 2: [Pratica 1 Consultas SQL Avançadas](modulo-5/banco-2-pratica-1)
 - Banco de Dados 2: [Pratica 2 Consultas SQL Avançadas](modulo-5/banco-2-pratica-2)
