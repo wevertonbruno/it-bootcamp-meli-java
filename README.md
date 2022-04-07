@@ -34,3 +34,7 @@
 - Banco de Dados 1: [Pratica 2 Consultas SQL](modulo-5/banco-1-pratica-2)
 - Banco de Dados 2: [Pratica 1 Consultas SQL Avançadas](modulo-5/banco-2-pratica-1)
 - Banco de Dados 2: [Pratica 2 Consultas SQL Avançadas](modulo-5/banco-2-pratica-2)
+- Banco de Dados 3: [Pratica Elasticsearch e Kibana](modulo-5/banco-3-pratica-elasticsearch)
+
+#### Modulo 6 (Storage Implementation)
+- Storage II: [Pratica 1 Api de Joias com JPA e Hibernate](modulo-6/storage-pratica-1)
