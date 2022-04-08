@@ -37,4 +37,5 @@
 - Banco de Dados 3: [Pratica Elasticsearch e Kibana](modulo-5/banco-3-pratica-elasticsearch)
 
 #### Modulo 6 (Storage Implementation)
-- Storage II: [Pratica 1 Api de Joias com JPA e Hibernate](modulo-6/storage-pratica-1)
+- Storage II: [Pratica 1 Api de Joias com JPA e Hibernate](modulo-6/storage-2-pratica-1)
+- Storage III: [Pratica 1 Api de TestCases com JPA e Hibernate](modulo-6/storage-3-pratica-1)
