@@ -42,3 +42,5 @@
 - Storage III: [Pratica 2 Api de Tutoriais com JPA e Hibernate](modulo-6/storage-3-pratica-2)
 - Storage III: [Pratica 3 Api Movies com JPA e Hibernate](modulo-6/storage-3-pratica-3)
 - Storage III: [Pratica 4 Api Movies com JPA e Hibernate (Consultas)](modulo-6/storage-3-pratica-3)
+
+Obs.: Praticas 3 e 4 ficaram no mesmo projeto pois considerei como complemento.
