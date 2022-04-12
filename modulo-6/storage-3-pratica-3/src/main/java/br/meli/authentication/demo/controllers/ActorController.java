@@ -1,6 +1,8 @@
 package br.meli.authentication.demo.controllers;
 
+import br.meli.authentication.demo.dto.ActorResponseDTO;
 import br.meli.authentication.demo.entities.Actor;
+import br.meli.authentication.demo.entities.Episode;
 import br.meli.authentication.demo.services.ActorService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -18,20 +20,26 @@ public class ActorController {
     }
 
     @PostMapping
-    public ResponseEntity<Actor> create(@RequestBody Actor actorDto){
-        Actor newActor = actorService.create(actorDto);
+    public ResponseEntity<ActorResponseDTO> create(@RequestBody Actor actorDto){
+        ActorResponseDTO newActor = actorService.create(actorDto);
         return ResponseEntity.ok(newActor);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Actor> update(@PathVariable Long id, @RequestBody Actor actorUpdateDto){
-        Actor updatedActor = actorService.update(id, actorUpdateDto);
+    public ResponseEntity<ActorResponseDTO> update(@PathVariable Long id, @RequestBody Actor actorUpdateDto){
+        ActorResponseDTO updatedActor = actorService.update(id, actorUpdateDto);
         return ResponseEntity.ok(updatedActor);
     }
 
     @GetMapping
-    public ResponseEntity<List<Actor>> findAll(){
-        List<Actor> actors = actorService.findAll();
+    public ResponseEntity<List<ActorResponseDTO>> findAll(){
+        List<ActorResponseDTO> actors = actorService.findAll();
+        return ResponseEntity.ok(actors);
+    }
+
+    @GetMapping("/search")
+    public ResponseEntity<List<ActorResponseDTO>> search(@RequestParam(required = false, name = "has_favorites") String hasFavorites){
+        List<ActorResponseDTO> actors = actorService.findAll();
         return ResponseEntity.ok(actors);
     }
 
@@ -39,6 +47,12 @@ public class ActorController {
     public ResponseEntity<Actor> findById(@PathVariable Long id){
         Actor actor = actorService.findById(id);
         return ResponseEntity.ok(actor);
+    }
+
+    @GetMapping("/{id}/episodes")
+    public ResponseEntity<List<Episode>> findAllEpisodesById(@PathVariable Long id){
+        List<Episode> episodes = actorService.findAllEpisodesById(id);
+        return ResponseEntity.ok(episodes);
     }
 
     @DeleteMapping("/{id}")

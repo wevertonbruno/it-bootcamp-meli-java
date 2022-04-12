@@ -1,5 +1,6 @@
 package br.meli.authentication.demo.controllers;
 
+import br.meli.authentication.demo.dto.ActorResponseDTO;
 import br.meli.authentication.demo.dto.MovieResponseDTO;
 import br.meli.authentication.demo.entities.Movie;
 import br.meli.authentication.demo.services.MovieService;
@@ -40,6 +41,25 @@ public class MovieController {
     public ResponseEntity<MovieResponseDTO> findById(@PathVariable Long id){
         MovieResponseDTO movie = movieService.findById(id);
         return ResponseEntity.ok(movie);
+    }
+
+    @GetMapping("/{id}/actors")
+    public ResponseEntity<List<ActorResponseDTO>> showActors(
+            @PathVariable Long id){
+        List<ActorResponseDTO> actors = movieService.findActors(id);
+        return ResponseEntity.ok(actors);
+    }
+
+    @GetMapping("/genre/{genreId}")
+    public ResponseEntity<List<MovieResponseDTO>> findByGenre(@PathVariable Long genreId){
+        List<MovieResponseDTO> movies = movieService.findByGenreId(genreId);
+        return ResponseEntity.ok(movies);
+    }
+
+    @GetMapping("/actor-rating/filter")
+    public ResponseEntity<List<MovieResponseDTO>> showActors(@RequestParam(required = false, name = "gt") Double greaterThan){
+        List<MovieResponseDTO> movies = movieService.findByActorsRatingGreaterThan(greaterThan);
+        return ResponseEntity.ok(movies);
     }
 
     @DeleteMapping("/{id}")

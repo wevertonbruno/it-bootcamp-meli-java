@@ -1,5 +1,6 @@
 package br.meli.authentication.demo.services.impl;
 
+import br.meli.authentication.demo.dto.ActorResponseDTO;
 import br.meli.authentication.demo.dto.MovieResponseDTO;
 import br.meli.authentication.demo.entities.Actor;
 import br.meli.authentication.demo.entities.Movie;
@@ -7,6 +8,7 @@ import br.meli.authentication.demo.repositories.ActorRepository;
 import br.meli.authentication.demo.repositories.MovieRepository;
 import br.meli.authentication.demo.services.MovieService;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -60,5 +62,24 @@ public class MovieServiceImpl implements MovieService {
     public void delete(Long id) {
         findById(id);
         movieRepository.deleteById(id);
+    }
+
+    @Transactional(readOnly = true)
+    @Override
+    public List<ActorResponseDTO> findActors(Long movieId) {
+        Movie movie = movieRepository.findById(movieId).orElseThrow(() -> new RuntimeException("Movie not found"));
+        return movie.getActors()
+                .stream().map(actorMovie -> ActorResponseDTO.of(actorMovie.getActor()))
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public List<MovieResponseDTO> findByActorsRatingGreaterThan(Double rating) {
+        return movieRepository.findByActorsRatingGreaterThan(rating).stream().map(MovieResponseDTO::of).collect(Collectors.toList());
+    }
+
+    @Override
+    public List<MovieResponseDTO> findByGenreId(Long genreId) {
+        return movieRepository.findByGenre_Id(genreId).stream().map(MovieResponseDTO::of).collect(Collectors.toList());
     }
 }

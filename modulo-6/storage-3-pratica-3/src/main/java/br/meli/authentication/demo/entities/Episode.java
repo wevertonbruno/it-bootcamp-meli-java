@@ -1,5 +1,8 @@
 package br.meli.authentication.demo.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -24,9 +27,11 @@ public class Episode extends AuditEntity{
     private LocalDate releaseDate;
     @Column(name = "end_date")
     private LocalDate endDate;
+    @JsonBackReference
     @ManyToOne
     private Season season;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "episode", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private Set<ActorEpisode> actors;
 }

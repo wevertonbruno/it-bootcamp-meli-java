@@ -28,4 +28,8 @@ public class Actor extends AuditEntity{
     @JsonIgnore
     @OneToMany(mappedBy = "actor",fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Set<ActorEpisode> episodes;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "favorite_movie_id", referencedColumnName = "id")
+    private Movie favoriteMovie;
 }

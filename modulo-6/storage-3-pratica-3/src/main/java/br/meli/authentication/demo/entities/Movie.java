@@ -38,4 +38,8 @@ public class Movie extends AuditEntity{
     @ManyToOne
     @JoinColumn(name = "genre_id", referencedColumnName = "id")
     private Genre genre;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "favoriteMovie", fetch = FetchType.LAZY, cascade = CascadeType.DETACH)
+    private Set<Actor> favorities;
 }

@@ -1,5 +1,7 @@
 package br.meli.authentication.demo.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -25,6 +27,7 @@ public class Serie extends AuditEntity{
     private LocalDate endDate;
     @ManyToOne
     private Genre genre;
+    @JsonIgnore
     @OneToMany(mappedBy = "serie")
     private Set<Season> seasons;
 }

@@ -1,15 +1,12 @@
 package br.meli.authentication.demo.dto;
 
-import br.meli.authentication.demo.entities.Actor;
 import br.meli.authentication.demo.entities.ActorMovie;
 import br.meli.authentication.demo.entities.Genre;
 import br.meli.authentication.demo.entities.Movie;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
@@ -28,9 +25,15 @@ public class MovieResponseDTO {
     private Set<ActorMovie> actors = new HashSet<>();
     private Genre genre;
 
-    public Set<Actor> getActors() {
+    public Set<ActorResponseDTO> getActors() {
         return actors.stream()
-                .map(actorMovie -> actorMovie.getActor())
+                .map(actorMovie -> new ActorResponseDTO(
+                        actorMovie.getActor().getId(),
+                        actorMovie.getActor().getFirstName(),
+                        actorMovie.getActor().getLastName(),
+                        actorMovie.getActor().getRating(),
+                        actorMovie.getActor().getFavoriteMovie()
+                ))
                 .collect(Collectors.toSet());
     }
 
