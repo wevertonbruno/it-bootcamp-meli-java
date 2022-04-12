@@ -39,4 +39,6 @@
 #### Modulo 6 (Storage Implementation)
 - Storage II: [Pratica 1 Api de Joias com JPA e Hibernate](modulo-6/storage-2-pratica-1)
 - Storage III: [Pratica 1 Api de TestCases com JPA e Hibernate](modulo-6/storage-3-pratica-1)
-- Storage III: [Pratica 1 Api de Tutoriais com JPA e Hibernate](modulo-6/storage-3-pratica-2)
+- Storage III: [Pratica 2 Api de Tutoriais com JPA e Hibernate](modulo-6/storage-3-pratica-2)
+- Storage III: [Pratica 3 Api Movies com JPA e Hibernate](modulo-6/storage-3-pratica-3)
+- Storage III: [Pratica 4 Api Movies com JPA e Hibernate (Consultas)](modulo-6/storage-3-pratica-3)
