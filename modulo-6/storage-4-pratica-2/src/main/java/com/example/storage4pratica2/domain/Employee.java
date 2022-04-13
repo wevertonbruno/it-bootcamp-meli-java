@@ -8,6 +8,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.elasticsearch.annotations.Document;
 import org.springframework.data.elasticsearch.annotations.Field;
 import org.springframework.data.elasticsearch.annotations.FieldType;
+import org.springframework.data.elasticsearch.annotations.Setting;
 
 import java.time.LocalDate;
 
@@ -15,14 +16,19 @@ import java.time.LocalDate;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Document(indexName = "employee")
+@Document(indexName = Indicies.EMPLOYEE_INDEX)
+@Setting(settingPath = "static/es-config.json")
 public class Employee {
     @Id
     private String id;
-    private String name;
-    private String surname;
-    private LocalDate birthDate;
     @Field(type = FieldType.Text)
+    private String name;
+    @Field(type = FieldType.Text)
+    private String surname;
+    @Field(type = FieldType.Date)
+    private LocalDate birthDate;
+    @Field(type = FieldType.Keyword)
     private State state;
+    @Field(type = FieldType.Text)
     private String city;
 }

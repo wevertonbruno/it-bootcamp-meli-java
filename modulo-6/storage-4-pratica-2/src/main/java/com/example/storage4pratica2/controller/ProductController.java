@@ -1,7 +1,9 @@
 package com.example.storage4pratica2.controller;
 
 import com.example.storage4pratica2.domain.Product;
+import com.example.storage4pratica2.dto.SearchDTO;
 import com.example.storage4pratica2.service.ProductService;
+import org.springframework.data.elasticsearch.core.SearchHits;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -41,5 +43,10 @@ public class ProductController {
     public ResponseEntity<?> deleteProduct(@PathVariable String id) {
         productService.deleteById(id);
         return ResponseEntity.noContent().build();
+    }
+
+    @PostMapping("/search")
+    public ResponseEntity<List<Product>> search(@RequestBody SearchDTO searchDTO){
+        return ResponseEntity.ok(productService.search(searchDTO));
     }
 }
