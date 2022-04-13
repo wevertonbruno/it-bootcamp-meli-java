@@ -43,5 +43,6 @@
 - Storage III: [Pratica 3 Api Movies com JPA e Hibernate](modulo-6/storage-3-pratica-3)
 - Storage III: [Pratica 4 Api Movies com JPA e Hibernate (Consultas)](modulo-6/storage-3-pratica-3)
 - Storage IV: [Pratica 1 Api Articles com Elasticsearch](modulo-6/storage-4-pratica-1)
+- Storage IV: [Pratica 2 Api Produtos e Funcionários com Elasticsearch](modulo-6/storage-4-pratica-2)
 
 *Obs.: Praticas 3 e 4 do Storage III ficaram no mesmo projeto pois considerei como complemento.*
