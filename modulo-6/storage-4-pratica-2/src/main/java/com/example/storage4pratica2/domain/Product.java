@@ -1,19 +1,13 @@
 package com.example.storage4pratica2.domain;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.elasticsearch.annotations.Document;
 import org.springframework.data.elasticsearch.annotations.Field;
 import org.springframework.data.elasticsearch.annotations.FieldType;
-import org.springframework.data.elasticsearch.annotations.Setting;
 
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
-@Document(indexName = Indicies.PRODUCT_INDEX)
-@Setting(settingPath = "static/es-config.json")
+@Document(indexName = Indicies.PRODUCT_INDEX, createIndex = false)
 public class Product {
     @Id
     private String id;
@@ -27,11 +21,8 @@ public class Product {
     private Category category;
 
     @Data
-    @AllArgsConstructor
-    @NoArgsConstructor
     public static class Category {
-        private String id;
-        @Field(type = FieldType.Keyword)
+        @Field(type = FieldType.Text)
         private String name;
     }
 }

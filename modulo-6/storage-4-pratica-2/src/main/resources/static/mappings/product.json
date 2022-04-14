@@ -1,0 +1,21 @@
+{
+  "properties": {
+    "id": {
+      "type": "keyword"
+    },
+    "name": {
+      "type": "text"
+    },
+    "price": {
+      "type": "double"
+    },
+    "storage": {
+      "type": "keyword"
+    },
+    "category": {
+      "properties": {
+        "name": { "type": "text"}
+      }
+    }
+  }
+}

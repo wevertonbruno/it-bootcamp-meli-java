@@ -1,0 +1,22 @@
+{
+  "properties": {
+    "id": {
+      "type": "keyword"
+    },
+    "name": {
+      "type": "text"
+    },
+    "surname": {
+      "type": "text"
+    },
+    "birth_date": {
+      "type": "date"
+    },
+    "state": {
+      "type": "keyword"
+    },
+    "city": {
+      "type": "text"
+    }
+  }
+}
